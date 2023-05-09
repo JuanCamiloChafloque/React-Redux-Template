@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../actions/userActions";
+import { login } from "../actions/authActions";
 import { Container, Form, Button } from "react-bootstrap";
 import Loader from "../components/Loader";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, user } = userLogin;
+  const auth = useSelector((state) => state.auth);
+  const { loading, error, user } = auth;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

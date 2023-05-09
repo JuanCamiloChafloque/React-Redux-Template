@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../actions/userActions";
+import { register } from "../actions/authActions";
 import Loader from "../components/Loader";
 import { Container, Form, Button, Col, Row } from "react-bootstrap";
 
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, user } = userRegister;
+  const auth = useSelector((state) => state.auth);
+  const { loading, error, user } = auth;
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -86,7 +86,7 @@ const Register = () => {
               Submit
             </Button>
             <Form.Text>
-              Already have an account? <Link to="/sign-in">Sign In</Link>
+              Already have an account? <Link to="/login">Sign In</Link>
             </Form.Text>
             <br />
             <Form.Text className="error-message">{error}</Form.Text>

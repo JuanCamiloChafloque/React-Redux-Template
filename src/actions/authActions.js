@@ -7,7 +7,7 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_LOGOUT,
-} from "../constants/userConstants";
+} from "../constants/authConstants";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -53,11 +53,6 @@ export const register =
 
       dispatch({
         type: USER_REGISTER_SUCCESS,
-        payload: data,
-      });
-
-      dispatch({
-        type: USER_LOGIN_SUCCESS,
         payload: data,
       });
 
